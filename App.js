@@ -76,7 +76,6 @@ export default function App() {
               dbRef.delete().then((res))
           },
         },
-
         {
           text: "No",
         },
@@ -86,8 +85,6 @@ export default function App() {
     // const dbRef = firebase.firestore().collection('ADDTASK').doc(key)
     // dbRef.delete().then((res))
     // Alert.alert("Are your sure?")
-
-
   };
 
   const searchItem = (keyword) => {
