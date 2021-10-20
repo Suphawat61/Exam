@@ -11,7 +11,7 @@ export default function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const submitHandler = (value, date, key) => {
+  const submitHandler = (value, date) => {
     firestore()
       .collection('ADDTASK')
       .add({
@@ -22,16 +22,6 @@ export default function App() {
       .then(() => {
         Alert.alert('The information was sent successfully.')
       })
-    //   setData((prevTodo) => {
-    //     return [
-    //       {
-    //         value: value,
-    //         date: date.toUTCString().slice(0, 10),
-    //         key: Math.random().toString(),
-    //       },
-    //       ...prevTodo,
-    //     ];
-    //   });
   };
 
   useEffect(() => {
@@ -72,8 +62,8 @@ export default function App() {
           text: "Yes",
           onPress: () => {
              console.log(key)
-              const dbRef = firebase.firestore().collection('ADDTASK').doc(key)
-              dbRef.delete().then((res))
+              firebase.firestore().collection('ADDTASK').doc(key)
+              .delete().then(('The information was delete successfully.'))
           },
         },
         {

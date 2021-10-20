@@ -21,7 +21,7 @@ export default function AddInput({ submitHandler }) {
     <ComponentContainer>
       <InputContainer>
         <Input
-          placeholder=" Add Task... " onChangeText={onChangeText} value={value}/>
+          placeholder=" Add Task... " onChangeText={onChangeText} />
       </InputContainer>
       <CalendarButton onPress={() => setOpen(true)} >
         <AntDesign name="calendar" size={24} color="#80BA9D" />
@@ -46,7 +46,7 @@ export default function AddInput({ submitHandler }) {
         // setValue(submitHandler(value, date));
         // }}
         onPress={() => {
-          if (value.length != 0) {
+          if (value.length > 0) {
             setValue(submitHandler(value, date));
           } else {
             alert(' Please enter the text ');
