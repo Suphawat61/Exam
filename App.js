@@ -15,7 +15,7 @@ export default function App() {
       .collection('ADDTASK')
       .add({
         value: value,
-        date: date.toUTCString().slice(4, 16),
+        date: date.toUTCString().slice(0, 16),
         key: Math.random().toString(),
       })
       .then(() => {

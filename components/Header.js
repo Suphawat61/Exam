@@ -3,7 +3,7 @@ import styled from "styled-components";
 import AntDesign from "react-native-vector-icons/AntDesign";
 var d
 
-let today = new Date().toUTCString().slice(4, 16);
+let today = new Date().toUTCString().slice(0, 16);
 
 export default function Header({ searchItem }) {
     const [value, setValue] = useState("");
