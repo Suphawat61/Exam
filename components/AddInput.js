@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import DatePicker from 'react-native-date-picker'
+
 import AntDesign from "react-native-vector-icons/AntDesign";
 
 export default function AddInput({ submitHandler }) {
@@ -8,23 +9,17 @@ export default function AddInput({ submitHandler }) {
   const [date, setDate] = useState(new Date())
   const [open, setOpen] = useState(false)
 
-  const onChangeText = (text, value, date) => {
+  const onChangeText = (text) => {
     setValue(text);
-    // if(value.length > 0 ){
-    //   setValue(submitHandler(value, date));
-    // }else{
-    //   alert('Please enter the text');
-    // }
   };
 
   return (
     <ComponentContainer>
       <InputContainer>
-        <Input
-          placeholder=" Add Task... " onChangeText={onChangeText} />
+        <Input placeholder="Add Task..." onChangeText={onChangeText} />
       </InputContainer>
       <CalendarButton onPress={() => setOpen(true)} >
-        <AntDesign name="calendar" size={24} color="#80BA9D" />
+        <AntDesign name="calendar" size={24} color="midnightblue" />
       </CalendarButton>
       <DatePicker
         modal
@@ -40,20 +35,11 @@ export default function AddInput({ submitHandler }) {
         }}
       />
       <SubmitButton
-        // onPress={() => {
-        // onChangeText(value, date);
-        // onChangeText(value)
-        // setValue(submitHandler(value, date));
-        // }}
         onPress={() => {
-          if (value.length > 0) {
-            setValue(submitHandler(value, date));
-          } else {
-            alert(' Please enter the text ');
-          }
+          setValue(submitHandler(value, date));
         }}
       >
-        <AntDesign name="plus" size={24} color="#80BA9D" />
+        <AntDesign name="plus" size={24} color="midnightblue" />
       </SubmitButton>
     </ComponentContainer>
   );

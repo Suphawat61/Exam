@@ -9,7 +9,6 @@ import firestore, { firebase } from '@react-native-firebase/firestore';
 
 export default function App() {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const submitHandler = (value, date) => {
     firestore()
@@ -37,13 +36,9 @@ export default function App() {
           };
         });
         setData(data);
-        if (loading) {
-          setLoading(false);
-        }
       });
     return () => unsubscribe();
-  }
-  );
+  },[]);
 
   // firestore()
   //   .collection('ADDTASK')
@@ -90,7 +85,7 @@ export default function App() {
         <FlatList
           data={data}
           ListHeaderComponent={() => <Header searchItem={searchItem} />}
-          ListEmptyComponent={() => <Empty setData={setData} />}
+          ListEmptyComponent={() => <Empty />}
           keyExtractor={(item) => item._id}
           renderItem={({ item }) => (
             <TodoList item={item} deleteItem={deleteItem} />

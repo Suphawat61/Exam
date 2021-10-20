@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import AntDesign from "react-native-vector-icons/AntDesign";
+var d
 
 let today = new Date().toUTCString().slice(4, 16);
 
